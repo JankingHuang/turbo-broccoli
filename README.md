@@ -81,3 +81,9 @@ A new Flutter project.
 * Chip（标签）
 * CircleAvatar（圆形头像）
 
+### InheritedWidget
+* Fluter内置的，跨组件状态管理的方案。
+* 基本逻辑是：
+* * 在inheritedWidget 中声明状态数据。
+* * 在需要使用状态的inhteritedWidget的子组件中访问，InheritedWidget中的状态数据。
+
