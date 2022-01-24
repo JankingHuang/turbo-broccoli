@@ -39,6 +39,12 @@ A new Flutter project.
 * * const Color.fromARGB(255,66,165,245);
 * * cosnt Color.fromRGBO(66,165,245,1.0);//O = opacity
 
+### 布局约束
+* 上层widget向下层widget传递约束条件。
+* 下层widget向上层widget传递大小信息。
+* 上层widget决定向下层widget的位置。
+* OverflowBox 与UncontrainedBox类似，但不同的是，前者如果其子级超出该空间，它不会显示任何警告。
+
 
 ### Container 布局
 * child，声明子组件
