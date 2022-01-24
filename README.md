@@ -87,3 +87,51 @@ A new Flutter project.
 * * 在inheritedWidget 中声明状态数据。
 * * 在需要使用状态的inhteritedWidget的子组件中访问，InheritedWidget中的状态数据。
 
+## 生命周期
+* initState() 组件对象插入到元素树种时
+* didchanged() 当状态对象的以来改变时
+* build() 组件渲染时
+* setState() 组件对象的内部状态变更时
+* didUpdateWidget() 组件配置更新时
+* deactivate() 组件对象在元素树种暂时移除时
+* dispose() 组件对象在元素树中永远移除时
+
+## 路由
+管理多个页面的核心概念和类：Route和Navigator。一个route是一个屏幕或页面的抽象，Navigator是管理route的Widget。Navigator可以通过route入栈和出栈。
+
+* 匿名路由
+* 与Android页面跳转一样
+```dart
+Navigator.push()
+Navigator.pop()
+```
+
+* 命名路由
+* * 给页面起一个别名，然后使用别名就可以打开，使得路由管理更加清晰。
+* * 需要提供页面名称映射表，路由表。
+* * 路由表是一个Map结构，其中Key对应页面名字，value对应具体页面。
+```dart
+//路由表
+MaterialApp{
+    routes{
+        'first' (context) => FirstPage(),
+        'second' (context) => SecondPage(),
+    },
+    initialRoute: 'first',
+}
+
+//跳转
+Navigator.pushNamed(context, 'second');
+```
+
+* 未知路由
+* * 打开不存在的页面，统一跳到一个错误页面。
+```dart
+MaterialApp(
+    onUnknownRoute: (RouteSettings setting) => MaterialPageRoute(builder: (context) => UnknownPage()),
+);
+```
+
+* 动态路由
+通过onGenerateRoute 属性指定的路由，可以根据访问路径进行动态的匹配和拦截。
+
