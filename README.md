@@ -45,7 +45,27 @@ A new Flutter project.
 * 上层widget决定向下层widget的位置。
 * OverflowBox 与UncontrainedBox类似，但不同的是，前者如果其子级超出该空间，它不会显示任何警告。
 
+### 尺寸限制类容器
+Flutter 确定组件大小的步骤为：
+* 上层组件向下层组件传递约束条件。
+* 下层组件确定自己的大小，然后告诉上层组件，且下层组件的大小必须符合父组件的约束。
 
+#### ConstrainedBox
+* 用于对子组件添加额外的约束
+
+#### SizedBox
+* 用于给子元素指定固定的宽高
+
+#### UnconstrainedBox
+* 会消除上层组件的约束，子组件不再收到约束。大小完全取决与自己。
+* 并非真正除去约束，父限制在布局中仍然生效，只是不影响子控件的大小。
+
+### 多重限制
+* 多个父级ConstrainedBox 限制，minWidth和minHeight 都是取最大值，maxWidth和maxHeight 就是去最小值。
+* 保证父限制与子限制不冲突。
+
+
+####
 ### Container 布局
 * child，声明子组件
 * padding（maring）边距
@@ -140,4 +160,6 @@ MaterialApp(
 
 * 动态路由
 通过onGenerateRoute 属性指定的路由，可以根据访问路径进行动态的匹配和拦截。
+
+
 
