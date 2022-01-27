@@ -162,4 +162,80 @@ MaterialApp(
 通过onGenerateRoute 属性指定的路由，可以根据访问路径进行动态的匹配和拦截。
 
 
+## 动画
+### 补间动画（Tween） 
+* 在补间动画中我们定义开始点和结束点、时间线以及定义转换时间和速度曲线。然后由系统计算，从开始点运动到结束点。从而形成动画效果。
+* 列如：透明度从0到1(淡入淡出), 颜色值从0到255
 
+### 拟物动画
+* 拟物动画是对真实世界的行为进行建模，是动画效果雷士与现实中的物理效果。
+* 如：弹簧、阻尼、重力、抛物线。
+
+### Animation
+* Flutter动画库中的一个核心类，它包含动画的值和状态两个属性，定义了动画的一系列监听函数。
+* * 监听值：
+* * *  addListener
+* * *  removeListener
+
+#### 动画状态
+在一个枚举类中
+* dismissed,动画的初始状态
+* completed,动画结束状态
+* forward,动画处于从开始到结束的运行状态
+* reverse,动画处在冲结束到开始的运行状态
+
+
+* * 监听状态：
+* * * addStatusListener
+* * * removeStatusListener
+
+### 动画控制器- AnimationController
+在核定时间内，将组件值由初始值演变到终止值，从而形成动画效果。
+
+#### 参数
+* duration 动画执行时间
+* reverseDuration 动画反方向执行时间
+* lowerBound 动画最小值
+* upperBound 动画最大值
+* value 动画初始值，默认是lowerBound 。动画运行过程中会不断变化
+* vsync (TickerProvider 类型对象，用来船舰Ticker对象)，创建一个AnimationController时，需要传递一个vsync参数，
+* 动画执行会不断通知组件更新，Ticker都会通知UI组件更新。
+* vsync 的作用是防止屏幕外动画消耗不必要的资源。
+##### 具体发方法
+* .forward() 正向执行动画
+* .reverse() 方向
+* .dispose() 释放动画支援
+* .stop() 停止动画
+
+### Tween
+AnimationCOntroller动画生产值的默认区间是0.0到1.0，如果希望使用不同的区间，或不同的数据类型，需要使用Tween
+* 定义从输入范围到输出范围的映射
+* 如： 颜色区间0到255
+
+### 动画-CurvedAnimation
+* 动画执行的熟读有多种（匀速、先快后慢或者先慢后快） 这是的速度成为动画曲线
+* CurvedAnimation的目的是为AnimationController添加动画曲线
+
+### 组件
+* CurvedAnimation(parent:controller, curve:Curves.easeIn)
+* * parent(动画控制器对象)
+* * curve(正向执行的动画曲线)
+* * reverseCurve（反向执行的动画曲线）
+
+### 动画-步骤
+* 创建动画控制器
+* * controller = AnimationController(duration, vsync)
+* 创建动画
+* * 动画曲线(CurvedAnimation)
+* * 补间动画(Tween)
+* 监听动画
+* * addListener()// 监听动画生成值
+* * addStatusListener()// 监听动画状态
+* 执行动画
+* * controller.forward()//正向执行
+* * controller.reverse()//反向执行
+
+## 网络编程
+* 使用http库
+* 将http请求返回的Response转换成dart object。
+* 创建一个CommonModel类与Response对应。
