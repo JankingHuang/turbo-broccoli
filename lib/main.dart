@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:turbo_broccoli/state/lifecycle.dart';
+
+import 'Animation/HeroAnimation.dart';
+
+// import 'Animation/StaggerAnimation.dart';
+
+// import 'Animation/animation.dart';
+// import 'package:turbo_broccoli/state/lifecycle.dart';
 
 void main(List<String> args) {
   runApp(MyApp());

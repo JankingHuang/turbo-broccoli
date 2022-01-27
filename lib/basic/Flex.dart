@@ -91,7 +91,6 @@ class FlexDemo extends StatelessWidget {
             direction: Axis.vertical,
             verticalDirection: VerticalDirection.up,
             children: [
-              ElevatedButton(onPressed: onPressed, child: child)
               Expanded(
                 child: Container(
                   color: Colors.tealAccent,
