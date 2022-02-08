@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:turbo_broccoli/Canvas/WheelPainter.dart';
 
 import 'ImageDetail.dart';
 
@@ -23,7 +24,7 @@ class _HomeState extends State<Home> {
         elevation: 0.0,
         centerTitle: true,
       ),
-      body: HeroAnimationDemo(),
+      body: Cake(),
     );
   }
 }
